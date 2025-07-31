@@ -93,7 +93,7 @@ public class Server{
 
 
     public static void main(String[] args) {
-        Server server=new Server();
+        TwoThreadServer server=new TwoThreadServer();
         try {
             server.run();
         } catch (Exception e) {

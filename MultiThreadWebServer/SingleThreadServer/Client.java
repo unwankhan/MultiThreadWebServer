@@ -10,9 +10,9 @@ public class Client{
      public void run(){
         int port=8010;
         String host="localhost";
-        try(Socket clientSocket=new Socket(host,port);
-              PrintWriter toServer=new PrintWriter(clientSocket.getOutputStream(),true);
-              BufferedReader fromServer=new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+        try(Socket serverSocket=new Socket(host,port);
+              PrintWriter toServer=new PrintWriter(serverSocket.getOutputStream(),true);
+              BufferedReader fromServer=new BufferedReader(new InputStreamReader(serverSocket.getInputStream()));
               BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
         )
         {
@@ -40,7 +40,7 @@ public class Client{
 
 
     public static void main(String[] args) {
-        Client client=new Client();
+        TwoThreadClient client=new TwoThreadClient();
         try{
             client.run();
         }
@@ -49,10 +49,5 @@ public class Client{
             e.printStackTrace();
         }
     }
-
-
-
-
-
 
 }
